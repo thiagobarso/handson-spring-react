@@ -1,5 +1,6 @@
 package com.packt.cardatabase.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Car {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "_id_car")
 	private long id;
 	private String brand, model, color, registerNumber;
 	private int year, price;
@@ -34,6 +36,16 @@ public class Car {
 		this.year = year;
 		this.price = price;
 		this.owner = owner;
+	}
+
+	public Car(String brand, String model, String color, String registerNumber, int year, int price) {
+		super();
+		this.brand = brand;
+		this.model = model;
+		this.color = color;
+		this.registerNumber = registerNumber;
+		this.year = year;
+		this.price = price;
 	}
 
 	public long getId() {

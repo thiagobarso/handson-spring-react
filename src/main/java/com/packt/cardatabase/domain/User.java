@@ -5,19 +5,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "usuario")
 public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(nullable = false, updatable = false)
+	@Column(name = "codigo", nullable = false, updatable = false)
 	private Long id;
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false, unique = true, name = "usuario")
 	private String username;
-	@Column(nullable = false)
+	@Column(nullable = false, name = "senha")
 	private String password;
-	@Column(nullable = false)
+	@Column(nullable = false, name = "perfil")
 	private String role;
 
 	public User() {
